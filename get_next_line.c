@@ -20,7 +20,10 @@ int get_next_line(const int fd, char **line)
     if (!str && !(str = malloc(sizeof(char) * BUFF_SIZE + 1)))
     return (-1);
     while (buffer[x] && buffer[x] != '\n')
+    {
         str[i++] = buffer[x++];
+        write(1, "a", 1);
+    }
     write(1, "n", 1);
     if (buffer[x] == '\n')
     {
