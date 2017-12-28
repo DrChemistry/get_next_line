@@ -21,6 +21,7 @@ int get_next_line(const int fd, char **line)
     return (-1);
     while (buffer[x] && buffer[x] != '\n')
         str[i++] = buffer[x++];
+    write(1, "n", 1);
     if (buffer[x] == '\n')
     {
       str[i] = '\0';
