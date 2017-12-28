@@ -4,6 +4,7 @@ int get_next_line(const int, char **);
 
 int main(int ac, char **av)
 {
-  get_next_line(0);
+  char *line;
+  get_next_line(0, &line);
   return (0);
 }
