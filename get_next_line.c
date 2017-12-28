@@ -14,11 +14,11 @@ int get_next_line(const int fd, char **line)
   if (!(buffer = malloc(sizeof(char) * BUFF_SIZE + 1)))
     return (-1);
     i = 0;
+    if (!(str = malloc(sizeof(char) * BUFF_SIZE + 1)))
+    return (-1);
   while (read(fd, buffer, BUFF_SIZE))
   {
     x = 0;
-    if (!str && !(str = malloc(sizeof(char) * BUFF_SIZE + 1)))
-    return (-1);
     while (buffer[x] && buffer[x] != '\n')
     {
         str[i++] = buffer[x++];
