@@ -8,6 +8,8 @@ int get_next_line(const int fd, char **line)
   char        *str;
   char        *buffer;
 
+  if (!(buffer = malloc(sizeof(char) * BUFF_SIZE + 1)))
+    return (-1);
   while (read(fd, buffer, BUFF_SIZE))
   {
     printf("%s\n", buffer);
