@@ -11,5 +11,5 @@ int get_next_line(const int fd, char **line)
   {
     printf("%s\n", buffer);
   }
-  return (NULL);
+  return (-1);
 }
