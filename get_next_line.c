@@ -1,3 +1,6 @@
+#include <unistd.h>
+#include "get_next_line.h"
+
 int get_next_line(const int fd, char **line)
 {
   static char *save;
@@ -8,5 +11,5 @@ int get_next_line(const int fd, char **line)
   {
     printf("%s\n", buffer);
   }
-  return (NULL)
+  return (NULL);
 }
