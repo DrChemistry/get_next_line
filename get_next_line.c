@@ -26,7 +26,7 @@ char  *concatenate(char *src, char *buff)
   x = 0;
   while (src[x])
     ++x;
-  if (!(dest = malloc(sizeof(char) * x + BUFF_SIZE)))
+  if (!(dest = malloc(sizeof(char) * (x + BUFF_SIZE + 1))))
     return (NULL);
   x = 0;
   b = 0;
