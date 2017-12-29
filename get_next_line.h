@@ -1,1 +1,1 @@
-#define BUFF_SIZE 32
+#define BUFF_SIZE 2
