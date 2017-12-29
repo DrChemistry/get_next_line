@@ -36,6 +36,7 @@ char  *concatenate(char *src, char *buff)
   while (buff[x])
     dest[b++] = buff[x++];
   dest[b] = 0;
+  free(src);
   return (dest);
 }
 
@@ -74,7 +75,7 @@ void destroy_last(char *save, int tmp)
   int x;
 
   x = 0;
-  while (x < tmp)
+  while (x <= tmp)
     save[x++] = 0;
   x = 0;
   while (save[++tmp])
