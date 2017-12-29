@@ -74,6 +74,9 @@ void destroy_last(char *save, int tmp)
   int x;
 
   x = 0;
+  while (x < tmp)
+    save[x++] = 0;
+  x = 0;
   while (save[++tmp])
     save[x++] = save[tmp];
   save[x] = 0;
@@ -86,8 +89,6 @@ int get_next_line(const int fd, char **line)
   int         x;
   int         tmp;
 
-  if (!(buffer = malloc(sizeof(char) * BUFF_SIZE + 1)))
-    return (-1);
   if (!save)
   {
     if (!(save = malloc(sizeof(char) * 2)))
@@ -104,6 +105,8 @@ int get_next_line(const int fd, char **line)
         return (0);
       }
   }
+  if (!(buffer = malloc(sizeof(char) * BUFF_SIZE + 1)))
+    return (-1);
   while (read(fd, buffer, BUFF_SIZE))
   {
     buffer[BUFF_SIZE] = 0;
@@ -114,6 +117,7 @@ int get_next_line(const int fd, char **line)
         if (!(line[0] = ft_cpto(save, line[0], tmp)))
           return (-1);
         destroy_last(save, tmp);
+        free(buffer);
         return (0);
       }
   }
