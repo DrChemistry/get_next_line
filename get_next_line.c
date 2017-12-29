@@ -58,7 +58,7 @@ char  *ft_cpto(char *save, char *dest, int c)
   int  x;
 
   x = 0;
-  if (!(dest = malloc(sizeof(char) * c)))
+  if (!(dest = malloc(sizeof(char) * c + 1)))
     return (NULL);
   while (x < c)
   {
