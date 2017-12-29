@@ -17,7 +17,7 @@ char *re_alloc(char *str, int i)
   return (dest);
 }
 
-char  *concatenate(char *src, char buff)
+char  *concatenate(char *src, char *buff)
 {
   int x;
   int b;
@@ -26,7 +26,7 @@ char  *concatenate(char *src, char buff)
   x = 0;
   while (src[x])
     ++x;
-  if (!(dest = malloc(sizeof(char) * x + BUFF_SIZE))
+  if (!(dest = malloc(sizeof(char) * x + BUFF_SIZE)))
     return (NULL);
   x = 0;
   b = 0;
@@ -98,7 +98,7 @@ int get_next_line(const int fd, char **line)
   {
     if ((tmp = check_car(save, '\n')) != -1)
       {
-        if (!(line[0] = ft_cpto(save, '\n', line[0], tmp)))
+        if (!(line[0] = ft_cpto(save, line[0], tmp)))
           return (-1);
         destroy_last(save, tmp);
         return (0);
