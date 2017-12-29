@@ -112,6 +112,7 @@ int get_next_line(const int fd, char **line)
       {
         if (!(line[0] = ft_cpto(save, line[0], tmp)))
           return (-1);
+        destroy_last(save, tmp);
         return (0);
       }
   }
