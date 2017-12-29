@@ -106,6 +106,7 @@ int get_next_line(const int fd, char **line)
   }
   while (read(fd, buffer, BUFF_SIZE))
   {
+    buffer[BUFF_SIZE] = 0;
     if (!(save = concatenate(save, buffer)))
       return (-1);
     if ((tmp = check_car(save, '\n')) != -1)
