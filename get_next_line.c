@@ -17,57 +17,103 @@ char *re_alloc(char *str, int i)
   return (dest);
 }
 
+char  *concatenate(char *src, char buff)
+{
+  int x;
+  int b;
+  char  *dest;
+
+  x = 0;
+  while (src[x])
+    ++x;
+  if (!(dest = malloc(sizeof(char) * x + BUFF_SIZE))
+    return (NULL);
+  x = 0;
+  b = 0;
+  while (src[x])
+    dest[b++] = src[x++];
+  x = 0;
+  while (buff[x])
+    dest[b++] = buff[x++];
+  dest[b] = 0;
+  return (dest);
+}
+
+int check_car(char *save, char c)
+{
+  int x;
+
+  x = 0;
+  while (save[x])
+  {
+    if (save[x] == c)
+    return (x);
+    ++x;
+  }
+  return (-1);
+}
+
+char  *ft_cpto(char *save, char *dest, int c)
+{
+  int  x;
+
+  x = 0;
+  if (!(dest = malloc(sizeof(char) * c)))
+    return (NULL);
+  while (x < c)
+  {
+    dest[x] = save[x];
+    ++x;
+  }
+  dest[x] = 0;
+  return (dest);
+}
+
+void destroy_last(char *save, int tmp)
+{
+  int x;
+
+  x = 0;
+  while (save[++tmp])
+    save[x++] = save[tmp];
+  save[x] = 0;
+}
+
 int get_next_line(const int fd, char **line)
 {
   static char *save;
-  char        *str;
   char        *buffer;
   int         x;
-  int         i;
-  int         b;
+  int         tmp;
 
   if (!(buffer = malloc(sizeof(char) * BUFF_SIZE + 1)))
     return (-1);
-  if (!(str = malloc(sizeof(char) * BUFF_SIZE + 1)))
-    return (-1);
-  i = 0;
-  x = 0;
-  b = 0;
-  if (save)
+  if (!save)
   {
-    while (save[x] && save[x] != '\n')
-    str[i++] = save[x++];
-    if (save[x] == '\n')
-    {
-      str[i] = '\0';
-      *line = str;
-      return (0);
-    }
-    else
-      free(save);
+    if (!(save = malloc(sizeof(char) * 2)))
+      return (-1);
+    save[0] = 0;
+  }
+  else
+  {
+    if ((tmp = check_car(save, '\n')) != -1)
+      {
+        if (!(line[0] = ft_cpto(save, '\n', line[0], tmp)))
+          return (-1);
+        destroy_last(save, tmp);
+        return (0);
+      }
   }
   while (read(fd, buffer, BUFF_SIZE))
   {
-    x = 0;
-    while (buffer[x] && buffer[x] != '\n')
-        str[i++] = buffer[x++];
-    str[i] = '\0';
-    if (buffer[x] == '\n')
-    {
-      if (buffer[x + 1] != '\0')
-      {
-        if (!(save = malloc(sizeof(char) * ft_strlen(buffer) - x)))
-          return (-1);
-        while (buffer[++x])
-          save[b++] = buffer[x];
-        save[b] = '\0';
-      }
-      *line = str;
-      free(buffer);
-      return (0);
-    }
-    if (!(str = re_alloc(str, i)))
+    if (!(save = concatenate(save, buffer)))
       return (-1);
+    if ((tmp = check_car(save, '\n')) != -1)
+      {
+        if (!(line[0] = ft_cpto(save, '\n', line[0], tmp)))
+          return (-1);
+        return (0);
+      }
   }
   return (-1);
 }
