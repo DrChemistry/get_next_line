@@ -110,7 +110,7 @@ int get_next_line(const int fd, char **line)
       return (-1);
     if ((tmp = check_car(save, '\n')) != -1)
       {
-        if (!(line[0] = ft_cpto(save, '\n', line[0], tmp)))
+        if (!(line[0] = ft_cpto(save, line[0], tmp)))
           return (-1);
         return (0);
       }
