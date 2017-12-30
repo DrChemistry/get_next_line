@@ -114,7 +114,7 @@ int get_next_line(const int fd, char **line)
     buffer[BUFF_SIZE] = 0;
     if (!(save = concatenate(save, buffer)))
       return (-1);
-      printf("%s\n", save);
+      printf("|%s|\n", save);
     if ((tmp = check_car(save, '\n')) != -1)
       {
         if (!(line[0] = ft_cpto(save, line[0], tmp)))
