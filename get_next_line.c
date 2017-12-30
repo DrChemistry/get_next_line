@@ -109,9 +109,9 @@ int get_next_line(const int fd, char **line)
   }
   if (!(buffer = malloc(sizeof(char) * BUFF_SIZE + 1)))
     return (-1);
-  while (read(fd, buffer, BUFF_SIZE))
+  while ((x = read(fd, buffer, BUFF_SIZE)))
   {
-    buffer[BUFF_SIZE] = 0;
+    buffer[x] = 0;
     if (!(save = concatenate(save, buffer)))
       return (-1);
       printf("|%s|\n", save);
