@@ -77,7 +77,7 @@ void destroy_last(char *save, int tmp)
   x = 0;
   while (x < tmp)
   save[x++] = 0;
-  printf("[%c]\n", save[++tmp]);
+  printf("[%c]\n", save[tmp]);
   x = 0;
   while (save[++tmp])
     save[x++] = save[tmp];
