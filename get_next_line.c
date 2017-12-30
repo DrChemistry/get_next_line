@@ -77,7 +77,6 @@ void destroy_last(char *save, int tmp)
   x = 0;
   while (x < tmp)
   save[x++] = 0;
-  printf("[%c]\n", save[tmp]);
   x = 0;
   while (save[++tmp])
     save[x++] = save[tmp];
@@ -114,7 +113,6 @@ int get_next_line(const int fd, char **line)
     buffer[x] = 0;
     if (!(save = concatenate(save, buffer)))
       return (-1);
-      printf("|%s|\n", save);
     if ((tmp = check_car(save, '\n')) != -1)
       {
         if (!(line[0] = ft_cpto(save, line[0], tmp)))
