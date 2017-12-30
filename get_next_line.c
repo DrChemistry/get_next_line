@@ -74,9 +74,9 @@ void destroy_last(char *save, int tmp)
 {
   int x;
 
-  x = 0;
-  while (x <= tmp)
-    save[x++] = 0;
+  x = tmp;
+  while (x >= 0)
+    save[x--] = 0;
   x = 0;
   while (save[++tmp])
     save[x++] = save[tmp];
