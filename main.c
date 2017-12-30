@@ -30,5 +30,6 @@ int main(int ac, char **av)
     printf("%s\n", line[0]);
     free(line[0]);
   }
+  free(line);
   return (0);
 }
