@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/19 11:57:08 by adi-rosa          #+#    #+#             */
-/*   Updated: 2018/01/19 11:57:46 by adi-rosa         ###   ########.fr       */
+/*   Created: 2017/11/23 08:31:55 by adi-rosa          #+#    #+#             */
+/*   Updated: 2017/11/23 10:18:28 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		GET_NEXT_LINE_H
-# define	GET_NEXT_LINE_H
+#include "libft.h"
 
-int	get_next_line(const int fd, char **line);
-
-# define BUFF_SIZE 32
-
-#endif
+int	ft_isprint(int c)
+{
+	return (c >= ' ' && c <= '~' ? 1 : 0);
+}

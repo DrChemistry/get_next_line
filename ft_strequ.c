@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/19 11:57:08 by adi-rosa          #+#    #+#             */
-/*   Updated: 2018/01/19 11:57:46 by adi-rosa         ###   ########.fr       */
+/*   Created: 2017/11/23 10:45:37 by adi-rosa          #+#    #+#             */
+/*   Updated: 2017/11/23 12:12:57 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		GET_NEXT_LINE_H
-# define	GET_NEXT_LINE_H
+#include "libft.h"
 
-int	get_next_line(const int fd, char **line);
-
-# define BUFF_SIZE 32
-
-#endif
+int	ft_strequ(char const *s1, char const *s2)
+{
+	return (!ft_strcmp((char *)s1, (char *)s2));
+}

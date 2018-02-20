@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/19 11:57:08 by adi-rosa          #+#    #+#             */
-/*   Updated: 2018/01/19 11:57:46 by adi-rosa         ###   ########.fr       */
+/*   Created: 2017/11/17 12:45:43 by adi-rosa          #+#    #+#             */
+/*   Updated: 2017/11/30 13:28:23 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		GET_NEXT_LINE_H
-# define	GET_NEXT_LINE_H
+#include <stdlib.h>
+#include "libft.h"
 
-int	get_next_line(const int fd, char **line);
+void	*ft_memmove(void *dst, const void *src, size_t n)
+{
+	char	buf[n][n];
 
-# define BUFF_SIZE 32
-
-#endif
+	ft_memcpy(buf, src, n);
+	ft_memcpy(dst, buf, n);
+	return (dst);
+}
