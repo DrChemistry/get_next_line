@@ -6,7 +6,7 @@
 /*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 08:51:40 by adi-rosa          #+#    #+#             */
-/*   Updated: 2018/02/20 09:18:06 by adi-rosa         ###   ########.fr       */
+/*   Updated: 2018/02/20 09:42:26 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int ft_findchar(char *s, char c);
+int		ft_findchar(char *s, char c);
 
 #endif

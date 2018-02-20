@@ -6,13 +6,13 @@
 /*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 09:16:20 by adi-rosa          #+#    #+#             */
-/*   Updated: 2018/02/20 09:18:46 by adi-rosa         ###   ########.fr       */
+/*   Updated: 2018/02/20 09:37:21 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_findchar(char *s, char c)
+int	ft_findchar(char *s, char c)
 {
 	int x;
 
