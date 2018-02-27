@@ -35,8 +35,8 @@ int	get_next_line(const int fd, char **line)
 	static char	*save;
 	char		buff[BUFF_SIZE + 1];
 	int			x;
-	char		debug[1];
 	int			tmp;
+	char		*tst;
 
 	if (!save && !(save = ft_strnew(BUFF_SIZE + 1)))
 		return (-1);
@@ -46,14 +46,17 @@ int	get_next_line(const int fd, char **line)
 	while ((tmp = read(fd, buff, BUFF_SIZE)))
 	{
 		buff[tmp] = '\0';
+		tst = save;
 		if (!(save = ft_strjoin(save, buff)))
 			return (-1);
+		free(tst);
 		if ((x = ft_findchar(save, '\n')) > -1)
 			return (feed_up(save, line, x, tmp) == -1 ? -1 : 1);
 	}
 	if (tmp == 0 && (x = ft_findchar(save, '\n') > -1))
 		return (feed_up(save, line, x, tmp) == -1 ? -1 : 1);
-	else if (tmp == 0)
+	free(save);
+	if (tmp == 0)
 		return (0);
 	return (-1);
 }
