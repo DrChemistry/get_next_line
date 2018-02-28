@@ -40,9 +40,8 @@ int	get_next_line(const int fd, char **line)
 
 	if (!save && !(save = ft_strnew(BUFF_SIZE + 1)))
 		return (-1);
-	if (save[0] != '\0')
-		if ((x = ft_findchar(save, '\n')) > -1)
-			return (feed_up(save, line, x, tmp) == -1 ? -1 : 1);
+	if (save[0] != '\0' && (x = ft_findchar(save, '\n')) > -1)
+		return (feed_up(save, line, x, tmp) == -1 ? -1 : 1);
 	while ((tmp = read(fd, buff, BUFF_SIZE)))
 	{
 		buff[tmp] = '\0';
@@ -56,7 +55,5 @@ int	get_next_line(const int fd, char **line)
 	if (tmp == 0 && (x = ft_findchar(save, '\n') > -1))
 		return (feed_up(save, line, x, tmp) == -1 ? -1 : 1);
 	free(save);
-	if (tmp == 0)
-		return (0);
-	return (-1);
+	return (tmp == 0 ? 0 : -1);
 }
