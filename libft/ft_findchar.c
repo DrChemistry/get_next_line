@@ -19,5 +19,5 @@ int	ft_findchar(char *s, char c)
 	x = 0;
 	while (s[x] && s[x] != c)
 		++x;
-	return (s[x] == '\0' ? -1 : x);
+	return (x);
 }

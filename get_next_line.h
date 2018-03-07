@@ -6,7 +6,7 @@
 /*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 11:57:08 by adi-rosa          #+#    #+#             */
-/*   Updated: 2018/02/20 09:38:39 by adi-rosa         ###   ########.fr       */
+/*   Updated: 2018/03/07 15:40:47 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 int	get_next_line(const int fd, char **line);
 
-# define BUFF_SIZE 32
+# define BUFF_SIZE 15
 
 #endif
