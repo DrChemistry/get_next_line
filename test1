@@ -6,7 +6,7 @@
 /*   By: adi-rosa <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 09:39:30 by adi-rosa          #+#    #+#             */
-/*   Updated: 2018/03/12 14:38:26 by adi-rosa         ###   ########.fr       */
+/*   Updated: 2018/03/06 10:25:08 by adi-rosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	fu(char *save, char **line, int x, int tmp)
 	tmp = x;
 	while (--x >= 0)
 		line[0][x] = save[x];
-	while (save[tmp] && save[tmp+ 1])
+	while (save[tmp] && save[tmp] + 1)
 		save[++x] = save[++tmp];
 	save[++x] = '\0';
 	return (1);

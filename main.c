@@ -14,19 +14,17 @@ int main(int ac, char **av)
 
   line = malloc(sizeof(char *) * 1);
   if (ac == 2)
-  {
     fd = open(av[1], O_RDONLY);
-  }
   else
     fd = 0;
   tmp = 0;
-  printf("%d\n", fd);
+  //printf("%d\n", fd);
   while ((tmp = get_next_line(fd, line)) > 0)
   {
-    printf("%s[%d]\n", *line, tmp);
+    printf("%s\n", *line);
     free(line[0]);
   }
-  printf("[%i]\n", tmp);
+  //printf("[%i]\n", tmp);
   free(line);
   return (0);
 }
